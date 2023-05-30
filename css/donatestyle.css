@@ -1,0 +1,405 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    /*border: 1px solid red;*/
+
+    /* border: solid 1px red ; */
+}
+
+:root{
+    --transition-btn-hover : all 400ms ease;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    height: 100vh;
+}
+
+/*Nav*/
+
+nav{
+    position: fixed;
+    z-index: 10;
+}
+
+.case{
+    display: flex;
+    flex-direction: row;
+
+    width: 100vw;
+    justify-content:center;
+   background: rgba(123, 123, 123, 0.577);
+   backdrop-filter: blur(2px);
+}
+
+.center h1{
+    display: flex;
+    justify-content: center;
+
+   font-family: 'Lobster Two', cursive;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.center h2{
+    display: flex;
+    justify-content: center;
+
+   font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-right: 10rem;
+}
+
+.left a,
+.right a{
+    transition: var(--transition-btn-hover);
+}
+
+.left a:hover,
+.right a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.right{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-left: 10rem;
+}
+
+.left a,
+.right a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+
+    color: rgb(0, 0, 0);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.line::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 35px;
+    width: 4px;
+    background: rgb(0, 0, 0);
+
+    left: 3rem;
+}
+
+.lineb::before{
+    content: "";
+    display: block;
+    position: relative;
+    height: 35px;
+    width: 4px;
+    background: rgb(0, 0, 0);
+
+    right: 6rem;
+}
+
+nav .left .main,
+nav .right .main{
+    color: black;
+}
+
+nav .drop1{
+
+    overflow: hidden;
+
+    transform: translate(0,0);
+    height: 25px;
+
+    transition: var(--transition-btn-hover);
+}
+
+nav .drop1:hover{
+    background: rgba(255, 255, 255, 0.441);
+    border-radius: 10px;
+
+    padding: 1rem;
+
+    transform: translate(0,1.5rem);
+    overflow:visible;
+    height: 5rem;
+}
+
+nav .drop2{
+
+    overflow: hidden;
+
+    transform: translate(0,0);
+    height: 25px;
+
+    transition: var(--transition-btn-hover);
+}
+
+nav .drop2:hover{
+    background: rgba(255, 255, 255, 0.441);
+    border-radius: 10px;
+
+    padding: 1rem;
+
+    transform: translate(0,1.5rem);
+    overflow:visible;
+    height: 7rem;
+}
+
+/* header */
+
+#header{
+    height: 24rem;
+}
+
+#header img{
+    z-index: -1;
+    padding-top: 4rem;
+    object-fit: cover;
+    width: 100vw;
+    height: 20rem;
+}
+
+#header h1{
+    position: relative;
+    text-align: center;
+    top: -55%;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+}
+
+/* donate */
+
+#donate{
+    height: fit-content;padding: 1rem 0;
+}
+
+#donate .wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 8rem ;
+    gap: 20px;
+    text-align: center;
+}
+
+#donate .wrapper>*{
+    flex: 1 50rem;
+}
+
+#donate .top p{
+    padding: 0 2rem ;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size:20px;
+}
+
+#donate .bottom .purch-wrapper button{
+    padding: 1rem 2rem;
+    border-radius: 20px;
+}
+
+#donate .bottom .bar{
+    padding: 1rem;
+}
+
+#donate .bottom .bar label
+{
+    padding: 1rem 1rem;
+    margin-right: 2px;
+    background:#F0F0F0;
+
+    border-radius: 20px 0px 0px 20px;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size:15px;
+}
+
+#donate .bottom .bar input{
+    padding: 1rem 1rem;
+    background: #F0F0F0;
+
+    border-radius: 0px 20px 20px 0px;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size:15px;
+}
+
+#donate .bottom .icon{
+    padding:1rem 2rem;
+    border-radius: 20px;
+    max-width: 30rem;
+    min-width: 10rem;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size:18px;
+    background: rgb(152, 196, 227);
+    color: white;
+}
+#donate .bottom .icon:hover{
+    background: rgb(81, 144, 206);
+}
+
+/* Purchase */
+
+#purchase{
+    height: fit-content;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#purchase .top p{
+    padding: 4rem 10rem ;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size:20px;
+}
+
+#purchase .bottom .content-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 8rem ;
+    gap: 20px;
+    text-align: center;
+}
+
+#purchase .bottom .content-wrapper>*{
+    flex: 1  1 15rem;
+}
+
+#purchase .bottom .section{
+    padding: 1rem;
+    background:#F0F0F0 ;
+    border-radius: 10px;
+}
+
+#purchase .bottom .section img{
+    max-height: 20rem;
+    max-width: 30rem;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#purchase .bottom .section h3{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size:18px;
+}
+
+#purchase .bottom .section p{
+    padding: 1rem 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size:16px;
+}
+
+#purchase .bottom .section input{
+    padding:1rem 2rem;
+    border-radius: 20px;
+    max-width: 30rem;
+    min-width: 10rem;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size:18px;
+    background: rgb(152, 196, 227);
+    color: white;
+}
+#purchase .bottom .section input:hover{
+    background: rgb(81, 144, 206);
+}
+
+/* Footer */
+
+footer .footer-img{
+    position: absolute;
+    z-index: -2;
+    border-radius: 10px;
+
+    height:12rem;
+    width: 100vw;
+    object-fit: cover;
+
+    filter: blur(1px);
+}
+
+footer .top ul{
+    background: rgba(255, 255, 255, 0.355);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 15rem;
+}
+
+footer .top ul  a{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+
+    transition: var(--transition-btn-hover);
+}
+
+footer .top ul  a:hover{
+    color: white;
+}
+
+footer p{
+    text-align: center;
+    margin-top:1rem ;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+footer .bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 40rem;
+
+}
+
+footer .bottom img{
+    transition: var(--transition-btn-hover);
+}
+
+footer .bottom img:hover{
+    scale: 1.4;
+}
+
+footer .bottom img{
+    width: 30px;
+}
+
+footer .name{
+    text-align: center;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+
+    margin-bottom: 1rem;
+}

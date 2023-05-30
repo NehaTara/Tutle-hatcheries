@@ -1,0 +1,637 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    /*border: 1px solid red;*/
+
+    /* border: solid 1px red ; */
+}
+
+:root{
+    --transition-btn-hover : all 400ms ease;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    height: 100vh;
+}
+
+/*Nav*/
+
+nav{
+    position: fixed;
+    z-index: 10;
+}
+
+.case{
+    display: flex;
+    flex-direction: row;
+
+    width: 100vw;
+    justify-content:center;
+   background: rgba(123, 123, 123, 0.577);
+   backdrop-filter: blur(2px);
+}
+
+.center h1{
+    display: flex;
+    justify-content: center;
+
+   font-family: 'Lobster Two', cursive;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.center h2{
+    display: flex;
+    justify-content: center;
+
+   font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-right: 10rem;
+}
+
+.left a,
+.right a{
+    transition: var(--transition-btn-hover);
+}
+
+.left a:hover,
+.right a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.right{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-left: 10rem;
+}
+
+.left a,
+.right a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+
+    color: rgb(0, 0, 0);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.line::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 35px;
+    width: 4px;
+    background: rgb(0, 0, 0);
+
+    left: 3rem;
+}
+
+.lineb::before{
+    content: "";
+    display: block;
+    position: relative;
+    height: 35px;
+    width: 4px;
+    background: rgb(0, 0, 0);
+
+    right: 6rem;
+}
+
+nav .left .main,
+nav .right .main{
+    color: black;
+}
+
+nav .drop1{
+
+    overflow: hidden;
+
+    transform: translate(0,0);
+    height: 25px;
+
+    transition: var(--transition-btn-hover);
+}
+
+nav .drop1:hover{
+    background: rgba(255, 255, 255, 0.441);
+    border-radius: 10px;
+
+    padding: 1rem;
+
+    transform: translate(0,1.5rem);
+    overflow:visible;
+    height: 5rem;
+}
+
+nav .drop2{
+
+    overflow: hidden;
+
+    transform: translate(0,0);
+    height: 25px;
+
+    transition: var(--transition-btn-hover);
+}
+
+nav .drop2:hover{
+    background: rgba(255, 255, 255, 0.441);
+    border-radius: 10px;
+
+    padding: 1rem;
+
+    transform: translate(0,1.5rem);
+    overflow:visible;
+    height: 7rem;
+}
+
+/*main-image section*/
+
+#main-video{
+   height: 40rem;
+}
+
+.bg-vid{
+    width: 100vw;
+    height: 40rem;
+    object-fit: cover;
+}
+
+/* main-quote */
+
+#main-video .quote{
+    position: absolute;   
+    padding: 0 4rem;
+    transform: translate(0,28rem);
+
+    z-index: 2;
+    line-height: 3rem;
+    color: white;
+
+    font-family: 'Londrina Shadow', cursive;
+    font-weight: 450;
+    font-size: 50px;
+}
+
+/* Divider Section */
+
+#divider{
+    height: 8rem;
+}
+
+.divider{
+    width: 100vw;
+}
+
+/*About section*/
+
+#about{
+    height: 9rem;
+}
+
+#about h2{
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+
+    margin-bottom: 0.5rem;
+}
+
+.about-p{
+    display: flex;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 0 8rem;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* Content Section */
+
+#content{
+    height: fit-content;
+}
+
+#content .top{
+    align-items: center;
+}
+
+#content .top img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 80vw;
+    height: 50vh;
+    object-fit: cover;
+
+    border-radius: 10px;
+    
+}
+
+#content .top .img2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 70vw;
+    height: 50vh;
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+#content .bottom{
+    padding-bottom: 1rem;
+}
+
+#content .bottom h3{
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+
+    margin-top: 3rem;
+}
+
+#content .bottom p{
+    margin-top: 2rem;
+    text-align: center;
+    padding: 0 5rem;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#content .bottom ol li{
+    list-style:visible;
+margin-left:50%;
+line-height: 20px;
+font-family: 'Rubik', sans-serif;
+}
+
+#content .bottom ul li{
+    list-style:circle;
+margin-left:48%;
+line-height: 20px;
+font-family: 'Rubik', sans-serif;
+}
+/* Footer */
+
+footer .footer-img{
+    position: absolute;
+    z-index: -2;
+    border-radius: 10px;
+
+    height:12rem;
+    width: 100vw;
+    object-fit: cover;
+
+    filter: blur(1px);
+}
+
+footer .top ul{
+    background: rgba(255, 255, 255, 0.355);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 15rem;
+}
+
+footer .top ul  a{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+
+    transition: var(--transition-btn-hover);
+}
+
+footer .top ul  a:hover{
+    color: white;
+}
+
+footer p{
+    text-align: center;
+    margin-top:1rem ;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+footer .bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 40rem;
+
+}
+
+footer .bottom img{
+    transition: var(--transition-btn-hover);
+}
+
+footer .bottom img:hover{
+    scale: 1.4;
+}
+
+footer .bottom img{
+    width: 30px;
+}
+
+footer .name{
+    text-align: center;
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+
+    margin-bottom: 1rem;
+}
+
+/* media queries */
+
+@media screen and (max-width : 1470px) {
+    body{
+        background: red;
+    }
+
+    /* nav */
+    
+    .left{
+        gap: 100px;
+        margin-right: 4rem;
+    }
+    
+    .right{
+        gap: 60px;
+        margin-left: 6rem;
+    }
+    
+    .line::after {
+        left: 3rem;
+    }
+    
+    .lineb::before{    
+        right: 3rem;
+    }
+
+}
+
+@media screen and (max-width : 1225px) {
+    body{
+        background: green;
+    }
+
+     /* nav */
+ 
+    .left a,
+    .right a{
+        font-size: 18px;
+    }
+    
+     .left{
+        gap: 100px;
+        margin-right: 1rem;
+    }
+    
+    .right{
+        gap: 60px;
+        margin-left: 4rem;
+    }
+    
+    .line::after {
+        left: 3rem;
+    }
+    
+    .lineb::before{    
+        right: 3rem;
+    }
+}
+
+
+@media screen and (max-width : 1050px) {
+    body{
+        background: yellow;
+    }
+
+    /* nav */
+    
+    .left a,
+    .right a{
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+     .left{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 6rem;
+    }
+    
+    .right{
+        display: flex;
+        flex-direction:column-reverse;
+        gap: 10px;
+        margin-left: 6rem;
+    }
+    
+    .line::after {
+        left: 0rem;
+        display:flex;
+        height: 4px;
+        width:35px ;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .lineb::before{
+        display: none;
+    }
+    
+    .lineb::after {    
+        content: "";
+        display: block;
+        position: relative;
+        height: 4px;
+        width:35px ;
+        background: rgb(0, 0, 0);
+        margin-top: 10px;
+    }
+
+    nav .drop1{
+        transform: translate(3rem,0);
+        height: 25px;
+     }
+
+    
+    nav .drop2{
+        transform: translate(3.5rem,0);
+        height: 25px;
+    }
+    
+
+}
+
+@media screen and (max-width : 925px) {
+    body{
+        background: gray;
+    }
+
+        /* nav */
+
+        .center h1{
+            font-size: 40px;
+        }
+    
+        .left a,
+        .right a{
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+         .left{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-right: 0rem;
+        }
+        
+        .right{
+            display: flex;
+            flex-direction:column-reverse;
+            gap: 10px;
+            margin-left: 0rem;
+        }
+        
+        .line::after {
+            left: 0rem;
+            display:flex;
+            height: 4px;
+            width:35px ;
+            position: relative;
+            margin-top: 10px;
+        }
+    
+        .lineb::before{
+            display: none;
+        }
+        
+        .lineb::after {    
+            content: "";
+            display: block;
+            position: relative;
+            height: 4px;
+            width:35px ;
+            background: rgb(0, 0, 0);
+            margin-top: 10px;
+        }
+    
+        nav .drop1{
+            transform: translate(3rem,0);
+            height: 25px;
+         }
+    
+        
+        nav .drop2{
+            transform: translate(3.5rem,0);
+            height: 25px;
+        }
+        
+}
+
+@media screen and (max-width : 736px) {
+    body{
+        background: orangered;
+    }
+
+    /* nav */
+
+    .center h1{
+        font-size: 40px;
+    }
+
+    .left a,
+    .right a{
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+     .left{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 0rem;
+    }
+    
+    .right{
+        display: flex;
+        flex-direction:column-reverse;
+        gap: 10px;
+        margin-left: 0rem;
+    }
+    
+    .line::after {
+        left: 0rem;
+        display:flex;
+        height: 4px;
+        width:35px ;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .lineb::before{
+        display: none;
+    }
+    
+    .lineb::after {    
+        content: "";
+        display: block;
+        position: relative;
+        height: 4px;
+        width:35px ;
+        background: rgb(0, 0, 0);
+        margin-top: 10px;
+    }
+
+    nav .drop1{
+        transform: translate(3rem,0);
+        height: 25px;
+     }
+
+    
+    nav .drop2{
+        transform: translate(3.5rem,0);
+        height: 25px;
+    }
+}
