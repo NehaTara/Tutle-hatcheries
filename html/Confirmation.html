@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="shortcut icon" href="../Images/turtle icon2.jpg">
+
+   <!-- css link -->
+    <link rel="stylesheet" href="../css/confirmation.css">
+
+
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Londrina+Shadow&family=Open+Sans&family=Rubik&display=swap" rel="stylesheet">
+
+     <!-- javaScript -->
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+
+</head>
+<body> 
+
+
+    <h1 class="heading">CONFIRMATION</h1>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav>
+      <ul class="navigation">
+        <li><a href="././index.html">Home Page</a></li>
+        <li><a href="../html/Tickets.html">Tickets Page</a></li>
+        <li><a href="../html/Details.html">Details Page</a></li>
+        <li><a href="../html/Payments.html">Payments Page</a></li>
+        <li><a href="#">Confirmation Page</a></li>
+      </ul>
+    </nav>  
+    
+  <div class="summary" x-data="confirm">
+    <h3>Thank you for your order.
+         Your order has been confirmed with us.
+          You can show this confirmation at the entrance.
+           Following is the summary of your order.</h3>
+           <br>
+    <h2>Order Summary</h2>
+    <Table class="table1">
+        <tr>
+            <td>Name</td>
+            <td><div x-text="guest.fullName"></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><div x-text="date"></td>
+        </tr>
+        <tr>
+            <td>Selected Times</td>
+            <td>
+                <template x-for="timeIndex in selectedTimeSlots">
+                    <div x-text="openTimes[timeIndex].title"></div>
+                </template>
+            </td>
+        </tr>
+        <tr>
+            <td>Duration</td>
+            <td x-text="selectedTimeSlots.length + ' Hrs' "></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><div x-text="guest.mobile"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><div x-text="guest.email"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><div x-text="guest.gender"></td>
+        </tr>
+        <tr class="tablehead">
+            <td>Tickets</td>
+            <td>Charges</td>
+        </tr>
+        <template x-for="guestIndex in ticketTypes">
+            <tr>   
+                    <td><div x-text=" guestIndex.count+' - ' + guestIndex.name"></div></td>
+                    <td><div x-text="'$'+guestIndex.total"></div></td>  
+            </tr>
+        </template>
+        <tr class="tablehead">
+            <td>Total Payable</td>
+            <td x-text="'$'+ grandTotal"></td>
+        </tr>
+    </Table>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('confirm', () => ({
+            guest: {
+                fullName: '',
+                mobile: '',
+                email: '',
+                emailConfirm:'',
+                gender: ''
+            },
+            date : null,
+            selectedTimeSlots : null,
+            grandTotal : null,
+            ticketTypes : [],
+            openTimes: [
+
+            {
+                title: '7AM to 8AM',
+                isPeak: false
+            },
+            {
+                title: '8AM to 9AM',
+                isPeak: false
+            },
+            {
+                title: '9AM to 10AM',
+                isPeak: false
+            },
+            {
+                title: '10AM to 11AM (Peak)',
+                isPeak: true
+            },
+            {
+                title: '11AM to 12PM (Peak)',
+                isPeak: true
+            },
+            {
+                title: '12PM to 1PM (Peak)',
+                isPeak: true
+            },
+            {
+                title: '1PM to 2PM',
+                isPeak: false
+            },
+            {
+                title: '2PM to 3PM',
+                isPeak: false
+            },
+            {
+                title: '3PM to 4PM (Peak)',
+                isPeak: true
+            },
+            {
+                title: '4PM to 5PM (Peak)',
+                isPeak: true
+            },
+            {
+                title: '5PM to 6PM (Peak)',
+                isPeak: true
+            },
+        ],
+
+            init() {
+                this.date = JSON.parse(localStorage.getItem('SavedDate'));
+                this.selectedTimeSlots = JSON.parse(localStorage.getItem('SavedTimeslot'));
+                this.grandTotal = JSON.parse(localStorage.getItem('TotalPayable'));
+                this.ticketTypes = JSON.parse(localStorage.getItem('SavedPrice'));
+                this.guest = JSON.parse(localStorage.getItem('guest'));
+
+                window.addEventListener('storage', (event) => {
+                if (event.key === null) {
+                    window.location.href = 'tickets.html';
+                    alert('Please re-ernter data');
+                }
+                });
+            },
+            gotoHome() {
+                alert('Thank You for your purchase');
+                window.location.href = 'Payments.html';
+            }
+        }))
+    })
+</script>
+
+
+     <!-- Footer Section -->
+     <footer>
+        <!-- <img src="../Images/footerimg 3.jpg" alt="" class="footer-img"> -->
+        <video class="footer-img" autoplay muted loop>
+                <source src="../assets/11111.mp4" type="video/mp4">
+            </video>
+        <div class="top">
+            <ul>
+               <a href="./index.html"><li>Home</li></a>
+                <a href="./html/TurtleCategories.html"><li>Turtle Categories</li></a>
+                <a href="./html/Hikkaturtlehatch.html"><li>Hikkaduwa Hatchery</li></a>
+                <a href="./html/Threatstoturtles.html"><li>Threats To Turtles</li></a>
+                <a href="./html/Bentota.html"><li>Bentota Hatchery</li></a>
+                <a href="./html/Kosgoda.html"><li>Kosgoda Hatchery</li></a>
+                <a href="./html/donate.html"><li>Donate</li></a>
+            </ul>
+        </div>
+        <p>Connect with us</p>
+        <div class="bottom">
+            <img src="../assets/icons8-instagram.svg" alt="">
+            <img src="../assets/icons8-facebook.svg" alt="">
+            <img src="../assets/icons8-linkedin.svg" alt="">
+            <img src="../assets/icons8-twitter.svg" alt="">
+        </div>
+        <div class="name">
+            Copyrights @CB011189 2023.allrights reserved
+        </div>
+        <!-- Turtle hatchery: Hikkaduwa (no date) YoVoyagin. Available at: https://www.yovoyagin.com/news/turtle-hatchery-hikkaduwa (Accessed: 26 May 2023).  -->
+    </footer>
+
+</body>
+</html>

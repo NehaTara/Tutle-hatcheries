@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="shortcut icon" href="../Images/turtle icon2.jpg">
+
+   <!-- css link -->
+    <link rel="stylesheet" href="../css/tickets.css">
+
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Londrina+Shadow&family=Open+Sans&family=Rubik&display=swap" rel= "stylesheet">
+
+    <!-- javaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
+
+</head>
+<body> 
+
+
+      <h1 class="heading">BUY TICKETS</h1>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <nav>
+    <ul class="navigation">
+      <li><a href="../index.html">Home Page</a></li>
+      <li><a href="#">Tickets Page</a></li>
+    </ul>
+  </nav>  
+
+  <div x-data="tickets">
+    <section id="main">
+        <div id="left">    
+
+            <div id="Date " class="class-container">
+                <h2>Choose the date</h2>
+                <input type="date" name="date" id="date" x-model="date" class="btn1">
+            </div>
+
+             
+            <div id="time " class="class-container">
+                <h2>Choose Times</h2>
+                <button x-on:click="open = !open" class="btn1">
+                    <span x-show="!open">Show Times</span>
+                    <span x-show="open">Hide Times</span>
+                </button>
+                <div x-show.important="open">
+                    <ul>
+                        <template x-for="(timeSlot, index) in openTimes" :key="index">
+                            <li>
+                                <label :for="timeSlot.title" x-text="timeSlot.title"
+                                 style="cursor: pointer;" x-on:click="selectTimeSlot(index)"
+                                 ></label>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="Guest " class="class-container">
+
+                <h2>Choose Guests</h2>
+
+                <template x-for="(ticketType, index) in ticketTypes" :key="index">
+                    <div class="CG_Input">
+                        <div x-init="$watch('selectedTimeSlots.length', value => calculate(ticketType))"></div>
+                        <label x-bind:for="ticketType.name" x-text="ticketType.name"></label>
+                        <div class="btn_container">
+                            <button type="button" id="decrement"
+                                x-on:click="ticketTypes[index].count = (ticketTypes[index].count - 1 > 0 ? ticketTypes[index].count - 1 : 0); calculate(ticketTypes[index])">-</button>
+                            <input type="number" x-model="ticketTypes[index].count" readonly />
+                            <button id="increment"
+                                x-on:click="ticketTypes[index].count = ticketTypes[index].count + 1; calculate(ticketTypes[index])">+</button>
+                        </div>
+                    </div>
+                </template>
+
+            </div> 
+           
+
+            <div>
+                <button class="btn1" x-on:click="gotoCheckout()">Continue with Purchase</button>
+            </div> 
+
+        </div>
+
+        <div id="right">
+
+            <div class="summary">
+                <h2>Order Summary</h2>
+                <Table class="table1">
+                    <tr>
+                        <td>Date</td>
+                        <td><div x-text="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Selected Times</td>
+                        <td>
+                            <template x-for="timeIndex in selectedTimeSlots">
+                                <div x-text="openTimes[timeIndex].title"></div>
+                            </template>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td x-text="selectedTimeSlots.length + ' Hrs' "></td>
+                    </tr>
+                    <tr class="tablehead1">
+                        <td>Tickets</td>
+                        <td>Charges</td>
+                    </tr>
+                    <template x-for="guestIndex in ticketTypes">
+                        <tr>   
+                                <td><div x-text=" guestIndex.count+' - ' + guestIndex.name"></div></td>
+                                <td><div x-text="'$'+guestIndex.total"></div></td>  
+                        </tr>
+                    </template>
+                    <tr>
+                        <td>Total Payable</td>
+                        <td x-text="'$'+calculateGrandTotal(ticketTypes)"></td>
+                    </tr>
+                </Table>
+            </div>
+
+        </div>
+
+             <!-- Footer Section -->
+     <footer>
+        <!-- <img src="../Images/footerimg 3.jpg" alt="" class="footer-img"> -->
+        <video class="footer-img" autoplay muted loop>
+                <source src="../assets/11111.mp4" type="video/mp4">
+            </video>
+        <div class="top">
+            <ul>
+               <a href="./index.html"><li>Home</li></a>
+                <a href="./html/TurtleCategories.html"><li>Turtle Categories</li></a>
+                <a href="./html/Hikkaturtlehatch.html"><li>Hikkaduwa Hatchery</li></a>
+                <a href="./html/Threatstoturtles.html"><li>Threats To Turtles</li></a>
+                <a href="./html/Bentota.html"><li>Bentota Hatchery</li></a>
+                <a href="./html/Kosgoda.html"><li>Kosgoda Hatchery</li></a>
+                <a href="./html/donate.html"><li>Donate</li></a>
+            </ul>
+        </div>
+        <p>Connect with us</p>
+        <div class="bottom">
+            <img src="../assets/icons8-instagram.svg" alt="">
+            <img src="../assets/icons8-facebook.svg" alt="">
+            <img src="../assets/icons8-linkedin.svg" alt="">
+            <img src="../assets/icons8-twitter.svg" alt="">
+        </div>
+        <div class="name">
+            Copyrights @CB011189 2023.allrights reserved
+        </div>
+        <!-- Turtle hatchery: Hikkaduwa (no date) YoVoyagin. Available at: https://www.yovoyagin.com/news/turtle-hatchery-hikkaduwa (Accessed: 26 May 2023).  -->
+    </footer>
+
+    </section>
+</div>
+
+
+<script>
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('tickets', () => ({
+            date: null,
+            open: false,
+            totalPayable: null,
+            selectedTimeSlots: [],
+            ticketTypes: [
+                {
+                    name: 'Sri Lankan Adult',
+                    peak: 6,
+                    offPeak: 4,
+                    count: 0,
+                    total: 0
+                },
+                {
+                    name: 'Sri Lankan Child',
+                    peak: 3,
+                    offPeak: 2,
+                    count: 0,
+                    total: 0
+                },
+                {
+                    name: 'Foreign Adult',
+                    peak: 13,
+                    offPeak: 10,
+                    count: 0,
+                    total: 0
+                },
+                {
+                    name: 'Foreign Child',
+                    peak: 8,
+                    offPeak: 5,
+                    count: 0,
+                    total: 0
+                },
+                {
+                    name: 'Infant',
+                    peak: 0,
+                    offPeak: 0,
+                    count: 0,
+                    total: 0
+                },
+            ],
+            openTimes: [
+
+                {
+                    title: '7AM to 8AM',
+                    isPeak: false
+                },
+                {
+                    title: '8AM to 9AM',
+                    isPeak: false
+                },
+                {
+                    title: '9AM to 10AM',
+                    isPeak: false
+                },
+                {
+                    title: '10AM to 11AM (Peak)',
+                    isPeak: true
+                },
+                {
+                    title: '11AM to 12PM (Peak)',
+                    isPeak: true
+                },
+                {
+                    title: '12PM to 1PM (Peak)',
+                    isPeak: true
+                },
+                {
+                    title: '1PM to 2PM',
+                    isPeak: false
+                },
+                {
+                    title: '2PM to 3PM',
+                    isPeak: false
+                },
+                {
+                    title: '3PM to 4PM (Peak)',
+                    isPeak: true
+                },
+                {
+                    title: '4PM to 5PM (Peak)',
+                    isPeak: true
+                },
+                {
+                    title: '5PM to 6PM (Peak)',
+                    isPeak: true
+                },
+            ],
+
+            selectTimeSlot(index) {
+
+            if (this.selectedTimeSlots.includes(index)) {
+                this.selectedTimeSlots = this.selectedTimeSlots.filter(item => item !== index);
+            } else {
+                let lastElement = this.selectedTimeSlots[this.selectedTimeSlots.length - 1];
+
+                    if (!this.selectedTimeSlots.length || index - 1 == lastElement) {
+
+                        this.selectedTimeSlots.push(index);
+
+                    } else {
+                        alert('You can only select consecutive time slots');
+                    }
+            }
+
+            this.selectedTimeSlots = this.selectedTimeSlots.sort();
+
+
+            console.log(this.selectedTimeSlots);
+            },
+
+      
+            calculate(ticketType) {
+
+            let total = 0;
+
+            this.selectedTimeSlots.forEach((timeSlotIndex) => {
+
+                // calculate the total
+                total += parseInt(ticketType.count * (this.openTimes[timeSlotIndex].isPeak ? ticketType.peak : ticketType.offPeak));
+            });
+
+            ticketType.total = total;
+
+            },
+
+            totalCalc(ticketType){
+                this.totalPayable = 0;
+                
+            },
+
+            calculateGrandTotal(ticketTypes){
+                let grandTotal = 0;
+
+                for (const ticketType of ticketTypes){
+                    grandTotal += ticketType.total;
+                }
+                this.totalPayable = grandTotal;
+                return grandTotal;
+            },
+
+            gotoCheckout(){
+
+                    if(this.date == null || this.selectedTimeSlots == null || this.ticketTypes == null){
+                        alert('Please Fill the given Criteria');
+                }else{
+                    // store the data in the local storage
+                    localStorage.setItem('SavedDate', JSON.stringify(this.date));
+                    localStorage.setItem('SavedTimeslot', JSON.stringify(this.selectedTimeSlots));
+                    localStorage.setItem('SavedPrice', JSON.stringify(this.ticketTypes));
+                    localStorage.setItem('TotalPayable', this.totalPayable); 
+
+                    window.location.href = 'details.html';
+                }
+            }
+
+        }));
+    })
+
+</script>
+
+    
+</body>
+</html>
