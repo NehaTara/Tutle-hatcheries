@@ -31,7 +31,7 @@
     <label for="menu-toggle" class="menu-icon">&#9776;</label>
     <nav>
       <ul class="navigation">
-        <li><a href="././index.html">Home Page</a></li>
+        <li><a href="../index.html">Home Page</a></li>
         <li><a href="../html/Tickets.html">Tickets Page</a></li>
         <li><a href="../html/Details.html">Details Page</a></li>
         <li><a href="#">Payments Page</a></li>
@@ -81,7 +81,7 @@
     <form x-on:submit.prevent="gotoConfirm">
         <div class="inputBox">
             <span>card number</span>
-            <input type="text" maxlength="16" class="card-number-input" x-model="cardInfo.cardNum" required>
+            <input type="number" maxlength="16" class="card-number-input" x-model="cardInfo.cardNum" required>
         </div>
         <div class="inputBox">
             <span>card holder</span>

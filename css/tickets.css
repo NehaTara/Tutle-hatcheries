@@ -18,6 +18,10 @@
 body{
     overflow-x: hidden; 
     height: 100vh;
+    background: url('../assets/david-troeger-9XzyEzPAHMI-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section{
@@ -266,7 +270,7 @@ footer .name{
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        background: rgb(201, 196, 196);
+        background: rgba(255, 255, 255, 0.5);
         border-radius: 20px;
         gap: 	20px;
       }

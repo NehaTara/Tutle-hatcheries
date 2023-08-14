@@ -17,6 +17,10 @@
 
 body{
     overflow-x: hidden; 
+    background: url('../assets/david-troeger-9XzyEzPAHMI-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section{
@@ -54,7 +58,7 @@ body, nav, ul, li {
   
   .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     padding: 10px;
   }
   
@@ -171,6 +175,7 @@ footer .top ul{
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem 15rem;
+    width: 90vw;
 }
 
 footer .top ul  a{
@@ -397,7 +402,7 @@ footer .name{
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        background: rgb(201, 196, 196);
+        background: rgba(255, 255, 255, 0.5);
         border-radius: 20px;
         
       }

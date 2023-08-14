@@ -17,6 +17,10 @@
 
 body{
     overflow-x: hidden; 
+    background: url('../assets/david-troeger-9XzyEzPAHMI-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section{
@@ -54,7 +58,7 @@ body, nav, ul, li {
   
   .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px;
   }
   
@@ -394,7 +398,7 @@ footer .name{
   
   /* Order Summary styles */
   .summary {
-    background-color: #f9f9f9;
+    background-color: #ffffff98;
     padding: 20px;
     border-radius: 5px;
   }

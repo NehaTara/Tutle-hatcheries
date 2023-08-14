@@ -17,6 +17,11 @@
 
 body{
     overflow-x: hidden; 
+
+    background: url('../assets/david-troeger-9XzyEzPAHMI-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section{
@@ -54,7 +59,7 @@ body, nav, ul, li {
   
   .navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     padding: 10px;
   }
   
@@ -378,7 +383,6 @@ footer .name{
 
 .container{
     min-height: 100vh;
-    background: #eee;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -425,7 +429,7 @@ footer .name{
 
 .container form .submit-btn{
     width: 100%;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background:linear-gradient(45deg, rgb(28, 70, 186), rgb(20, 255, 165));
     margin-top: 20px;
     padding: 10px;
     font-size: 20px;
@@ -452,7 +456,7 @@ footer .name{
     height: 100%;
     width: 100%;
     top: 0; left: 0;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background:linear-gradient(45deg, rgb(28, 70, 186), rgb(20, 255, 165));
     border-radius: 5px;
     backface-visibility: hidden;
     box-shadow: 0 15px 25px rgba(0,0,0,.2);
@@ -496,7 +500,7 @@ footer .name{
     top:0; left: 0;
     height: 100%;
     width: 100%;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background:linear-gradient(45deg, rgb(28, 70, 186), rgb(20, 255, 165));
     border-radius: 5px;
     padding: 20px 0;
     text-align: right;
